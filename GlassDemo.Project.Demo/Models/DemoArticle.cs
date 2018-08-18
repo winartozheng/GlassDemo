@@ -6,7 +6,7 @@ using Glass.Mapper.Sc.Fields;
 namespace GlassDemo.Project.Demo.Models
 {
     [SitecoreType(TemplateId = Templates.GlassArticle.Id, AutoMap = true)]
-    public class DemoArticle
+    public class DemoArticle : ItemBase
     {
         public virtual string Header { get; set; }
         public virtual string Body { get; set; }
