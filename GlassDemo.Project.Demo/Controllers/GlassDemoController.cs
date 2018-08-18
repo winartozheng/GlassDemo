@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using Glass.Mapper.Sc;
 using Glass.Mapper.Sc.Web.Mvc;
 using GlassDemo.Project.Demo.Models;
+using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
-	public class GlassDemoController : Controller
+	public class GlassDemoController : GlassController
 	{
 		private readonly IMvcContext _mvcContext;
 
@@ -48,5 +51,38 @@ namespace GlassDemo.Project.Demo.Controllers
 
 			return View(listItems);
 		}
-	}
+
+        public ActionResult DemoCarousel()
+        {
+            // test disable lazy loading & SitecoreService:
+            Database masterDb = Sitecore.Configuration.Factory.GetDatabase("master");
+            ISitecoreService service = new SitecoreService(masterDb);
+
+            Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
+
+            // test end
+
+            var dataSource = _mvcContext.GetDataSourceItem<Carousel>();
+
+            var viewModel = new CarouselViewModel
+            {
+                Title = dataSource.Title
+            };
+            for (var i = 0; i < dataSource.Items.Count(); i++)
+            {
+                var item = dataSource.Items.ElementAt(i);
+                viewModel.Items.Add(new CarouselItemViewModel
+                {
+                    Index = i,
+                    ImageUrl = item.Image?.Src,
+                    ImageAlt = item.Image?.Alt,
+                    ShowCaption = !string.IsNullOrEmpty(item.Caption),
+                    Caption = item.Caption,
+                    Class = i == 0 ? "active" : string.Empty
+                });
+            }
+
+            return View(viewModel);
+        }
+    }
 }

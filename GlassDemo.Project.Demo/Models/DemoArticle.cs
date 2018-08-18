@@ -10,6 +10,7 @@ namespace GlassDemo.Project.Demo.Models
     {
         public virtual string Header { get; set; }
         public virtual string Body { get; set; }
-        public virtual Link Link { get; set; }
+        public virtual Image Image { get; set; }
+        public virtual DateTime Date { get; set; }
     }
 }

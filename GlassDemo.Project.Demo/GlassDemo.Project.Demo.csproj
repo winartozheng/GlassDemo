@@ -130,6 +130,7 @@
     <Content Include="Views\Shared\DefaultMVCLayout.cshtml" />
     <Content Include="Views\GlassDemo\DemoList.cshtml" />
     <Content Include="Views\GlassDemo\ApiList.cshtml" />
+    <Content Include="Views\GlassDemo\DemoCarousel.cshtml" />
     <None Include="Views\web.config" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
@@ -141,6 +142,9 @@
     <Compile Include="Controllers\GlassDemoController.cs" />
     <Compile Include="GlassDemoConfigurator.cs" />
     <Compile Include="GlassMapperConfigurator.cs" />
+    <Compile Include="Models\CarouselItem.cs" />
+    <Compile Include="Models\CarouselItemViewModel.cs" />
+    <Compile Include="Models\CarouselViewModel.cs" />
     <Compile Include="Models\Configuration\IListMap.cs" />
     <Compile Include="Models\DemoCarousel.cs" />
     <Compile Include="Models\DemoArticle.cs" />
