@@ -1,0 +1,13 @@
+﻿@model List<GlassDemo.Project.Demo.Models.ListItem>
+
+@foreach (var item in Model)
+{
+  <div>
+	  <div>
+	  	@item.Title
+	  </div>
+	  <div>
+	  	@item.Url
+	  </div>
+  </div>
+}

@@ -129,6 +129,7 @@
     <None Include="Properties\PublishProfiles\sc90Profile.pubxml" />
     <Content Include="Views\Shared\DefaultMVCLayout.cshtml" />
     <Content Include="Views\GlassDemo\DemoList.cshtml" />
+    <Content Include="Views\GlassDemo\ApiList.cshtml" />
     <None Include="Views\web.config" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
@@ -144,6 +145,7 @@
     <Compile Include="Models\DemoCarousel.cs" />
     <Compile Include="Models\DemoArticle.cs" />
     <Compile Include="Models\IList.cs" />
+    <Compile Include="Models\ListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>

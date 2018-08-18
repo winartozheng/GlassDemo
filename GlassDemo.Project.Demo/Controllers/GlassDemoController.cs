@@ -1,6 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Glass.Mapper.Sc.Web.Mvc;
 using GlassDemo.Project.Demo.Models;
+using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+using Sitecore.Links;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
@@ -22,6 +26,27 @@ namespace GlassDemo.Project.Demo.Controllers
 		{
 			var dataSource = _mvcContext.GetDataSourceItem<IList>();
 			return View(dataSource);
+		}
+
+		public ActionResult ApiList()
+		{
+			var currentItem = Sitecore.Context.Item;
+			var listItems = new List<ListItem>();
+
+			foreach (Item child in currentItem.Children)
+			{
+				var display = new CheckboxField(child.Fields["Display in List"]);
+				if (display.Checked)
+				{
+					var listItem = new ListItem();
+					listItem.Title = child["Title"];
+					listItem.Url = LinkManager.GetItemUrl(child);
+
+					listItems.Add(listItem);
+				}
+			}
+
+			return View(listItems);
 		}
 	}
 }
