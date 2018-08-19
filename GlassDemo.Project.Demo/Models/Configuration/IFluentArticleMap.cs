@@ -2,7 +2,7 @@
 
 namespace GlassDemo.Project.Demo.Models.Configuration
 {
-	public class IListMap : SitecoreGlassMap<IList>
+	public class IFluentArticleMap : SitecoreGlassMap<IFluentArticle>
 	{
 		public override void Configure()
 		{

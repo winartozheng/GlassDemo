@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GlassDemo.Project.Demo.Models
 {
-	public interface IList
+	public interface IFluentArticle
 	{
 		Guid Id { get; }
 		string Title { get; }

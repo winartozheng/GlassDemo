@@ -27,9 +27,9 @@ namespace GlassDemo.Project.Demo.Controllers
 			return View(dataSource);
 		}
 
-		public ActionResult DemoList()
+		public ActionResult DemoFluentArticle()
 		{
-			var dataSource = _mvcContext.GetDataSourceItem<IList>();
+			var dataSource = _mvcContext.GetDataSourceItem<IFluentArticle>();
 			return View(dataSource);
 		}
 

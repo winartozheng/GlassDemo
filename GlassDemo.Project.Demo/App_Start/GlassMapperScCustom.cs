@@ -48,7 +48,7 @@ namespace GlassDemo.Project.Demo.App_Start
 		}
 		public static void AddMaps(IConfigFactory<IGlassMap> mapsConfigFactory)
         {
-            mapsConfigFactory.Add(() => new IListMap());
+            mapsConfigFactory.Add(() => new IFluentArticleMap());
         }
     }
 }
