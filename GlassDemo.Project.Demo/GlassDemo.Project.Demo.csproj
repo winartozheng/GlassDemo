@@ -128,7 +128,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\sc90Profile.pubxml" />
     <Content Include="Views\Shared\DefaultMVCLayout.cshtml" />
-    <Content Include="Views\GlassDemo\DemoList.cshtml" />
+    <Content Include="Views\GlassDemo\DemoFluentArticle.cshtml" />
     <Content Include="Views\GlassDemo\ApiList.cshtml" />
     <Content Include="Views\GlassDemo\DemoCarousel.cshtml" />
     <None Include="Views\web.config" />
@@ -145,10 +145,10 @@
     <Compile Include="Models\CarouselItem.cs" />
     <Compile Include="Models\CarouselItemViewModel.cs" />
     <Compile Include="Models\CarouselViewModel.cs" />
-    <Compile Include="Models\Configuration\IListMap.cs" />
+    <Compile Include="Models\Configuration\IFluentArticleMap.cs" />
     <Compile Include="Models\DemoCarousel.cs" />
     <Compile Include="Models\DemoArticle.cs" />
-    <Compile Include="Models\IList.cs" />
+    <Compile Include="Models\IFluentArticle.cs" />
     <Compile Include="Models\ListItem.cs" />
     <Compile Include="Pipeline\NotFoundProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
