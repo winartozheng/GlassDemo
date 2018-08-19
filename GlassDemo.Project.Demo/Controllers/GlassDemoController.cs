@@ -8,6 +8,7 @@ using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
+using Sitecore.Mvc.Presentation;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
@@ -22,6 +23,7 @@ namespace GlassDemo.Project.Demo.Controllers
 		public ActionResult DemoArticle()
 		{
 			var dataSource = _mvcContext.GetDataSourceItem<DemoArticle>();
+            //vs. GetRenderingItem<T>() ?
 			return View(dataSource);
 		}
 
@@ -59,7 +61,7 @@ namespace GlassDemo.Project.Demo.Controllers
             ISitecoreService service = new SitecoreService(masterDb);
 
             Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
-
+            var item = service.GetItem<Carousel>(new GetItemByIdOptions(System.Guid.NewGuid()));
             // example end
 
             var dataSource = _mvcContext.GetDataSourceItem<Carousel>();
