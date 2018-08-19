@@ -11,7 +11,7 @@ using Sitecore.Links;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
-	public class GlassDemoController : GlassController
+	public class GlassDemoController : Controller
 	{
 		private readonly IMvcContext _mvcContext;
 
@@ -54,13 +54,13 @@ namespace GlassDemo.Project.Demo.Controllers
 
         public ActionResult DemoCarousel()
         {
-            // test disable lazy loading & SitecoreService:
+            // example for lazy loading & SitecoreService:
             Database masterDb = Sitecore.Configuration.Factory.GetDatabase("master");
             ISitecoreService service = new SitecoreService(masterDb);
 
             Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
 
-            // test end
+            // example end
 
             var dataSource = _mvcContext.GetDataSourceItem<Carousel>();
 
