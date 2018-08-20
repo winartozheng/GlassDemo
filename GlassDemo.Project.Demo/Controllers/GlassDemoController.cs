@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Glass.Mapper.Sc;
 using Glass.Mapper.Sc.Web.Mvc;
@@ -9,6 +10,7 @@ using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Mvc.Presentation;
+using Sitecore.Web.UI.WebControls;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
@@ -32,8 +34,20 @@ namespace GlassDemo.Project.Demo.Controllers
 			var dataSource = _mvcContext.GetDataSourceItem<IFluentArticle>();
 			return View(dataSource);
 		}
+        public ActionResult DemoNoGlassArticle()
+        {
+            var dataSourceItem = RenderingContext.Current.Rendering.Item;
+            var DemoArticleNoGlass = new DemoArticleNoGlass()
+            {
+                Header = new HtmlString(FieldRenderer.Render(dataSourceItem, "Header")),
+                Body = new HtmlString(FieldRenderer.Render(dataSourceItem, "Body")),
+                Image = new HtmlString(FieldRenderer.Render(dataSourceItem, "Event Image", "mw=400")),
 
-		public ActionResult ApiList()
+                //Date = Sitecore.Links.LinkManager.GetItemUrl(item)
+            };
+            return View(dataSourceItem);
+        }
+        public ActionResult ApiList()
 		{
 			var currentItem = Sitecore.Context.Item;
 			var listItems = new List<ListItem>();
@@ -61,7 +75,7 @@ namespace GlassDemo.Project.Demo.Controllers
             ISitecoreService service = new SitecoreService(masterDb);
 
             Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
-            var item = service.GetItem<Carousel>(new GetItemByIdOptions(System.Guid.NewGuid()));
+            var target2 = service.GetItem<Carousel>(new GetItemByIdOptions(System.Guid.NewGuid()));
             // example end
 
             var dataSource = _mvcContext.GetDataSourceItem<Carousel>();

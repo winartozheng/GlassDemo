@@ -131,6 +131,7 @@
     <Content Include="Views\GlassDemo\DemoFluentArticle.cshtml" />
     <Content Include="Views\GlassDemo\ApiList.cshtml" />
     <Content Include="Views\GlassDemo\DemoCarousel.cshtml" />
+    <Content Include="Views\GlassDemo\DemoArticleNoGlass.cshtml" />
     <None Include="Views\web.config" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
@@ -146,6 +147,7 @@
     <Compile Include="Models\CarouselItemViewModel.cs" />
     <Compile Include="Models\CarouselViewModel.cs" />
     <Compile Include="Models\Configuration\IFluentArticleMap.cs" />
+    <Compile Include="Models\DemoArticleNoGlass.cs" />
     <Compile Include="Models\DemoCarousel.cs" />
     <Compile Include="Models\DemoArticle.cs" />
     <Compile Include="Models\IFluentArticle.cs" />
