@@ -37,7 +37,7 @@ namespace GlassDemo.Project.Demo.Controllers
         public ActionResult DemoNoGlassArticle()
         {
             var dataSourceItem = RenderingContext.Current.Rendering.Item;
-            var DemoArticleNoGlass = new DemoArticleNoGlass()
+            var demoArticleNoGlass = new DemoArticleNoGlass()
             {
                 Header = new HtmlString(FieldRenderer.Render(dataSourceItem, "Header")),
                 Body = new HtmlString(FieldRenderer.Render(dataSourceItem, "Body")),
@@ -45,7 +45,7 @@ namespace GlassDemo.Project.Demo.Controllers
 
                 //Date = Sitecore.Links.LinkManager.GetItemUrl(item)
             };
-            return View(dataSourceItem);
+            return View(demoArticleNoGlass);
         }
         public ActionResult ApiList()
 		{

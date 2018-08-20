@@ -131,7 +131,7 @@
     <Content Include="Views\GlassDemo\DemoFluentArticle.cshtml" />
     <Content Include="Views\GlassDemo\ApiList.cshtml" />
     <Content Include="Views\GlassDemo\DemoCarousel.cshtml" />
-    <Content Include="Views\GlassDemo\DemoArticleNoGlass.cshtml" />
+    <Content Include="Views\GlassDemo\DemoNoGlassArticle.cshtml" />
     <None Include="Views\web.config" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
