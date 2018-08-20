@@ -1,23 +1,25 @@
-﻿using Glass.Mapper.Sc;
-using Glass.Mapper.Sc.Web;
+﻿using Glass.Mapper.Sc.Web;
 using Sitecore;
 using Sitecore.Data.Items;
 using Sitecore.Pipelines.HttpRequest;
-using System;
 
 namespace GlassDemo.Project.Demo.Pipeline
 {
 	public class NotFoundProcessor : HttpRequestProcessor
 	{
+		private readonly IRequestContext _requestContext;
 
+		public NotFoundProcessor(IRequestContext requestContext)
+		{
+			_requestContext = requestContext;
+		}
 		public override void Process(HttpRequestArgs args)
 		{
-			var requestContext = new RequestContext(new SitecoreService("master"));
 			if (IsValidItem())
 			{
 				return;
 			}
-			Context.Item = requestContext.GetHomeItem<Item>();
+			Context.Item = _requestContext.GetHomeItem<Item>();
 			
 		}
 
