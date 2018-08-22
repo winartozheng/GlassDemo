@@ -75,8 +75,15 @@ namespace GlassDemo.Project.Demo.Controllers
             ISitecoreService service = new SitecoreService(masterDb);
 
             Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
-            var target2 = service.GetItem<Carousel>(new GetItemByIdOptions(System.Guid.NewGuid()));
+            var options = new GetItemByIdOptions(System.Guid.NewGuid())
+						{
+							InferType = true, 
+							Lazy = Glass.Mapper.LazyLoading.Disabled
+						};
+						var target2 = service.GetItem<Carousel>(options);
             // example end
+						
+						
 
             var dataSource = _mvcContext.GetDataSourceItem<Carousel>();
 
