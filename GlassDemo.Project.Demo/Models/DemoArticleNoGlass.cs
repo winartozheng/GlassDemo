@@ -10,6 +10,6 @@ namespace GlassDemo.Project.Demo.Models
         public HtmlString Header { get; set; }
         public HtmlString Body { get; set; }
         public HtmlString Image { get; set; }
-        public DateTime Date { get; set; }
+        public HtmlString Date { get; set; }
     }
 }
