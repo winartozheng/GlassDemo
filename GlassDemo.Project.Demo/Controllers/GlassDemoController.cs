@@ -41,9 +41,8 @@ namespace GlassDemo.Project.Demo.Controllers
             {
                 Header = new HtmlString(FieldRenderer.Render(dataSourceItem, "Header")),
                 Body = new HtmlString(FieldRenderer.Render(dataSourceItem, "Body")),
-                Image = new HtmlString(FieldRenderer.Render(dataSourceItem, "Event Image", "mw=400")),
-
-                //Date = Sitecore.Links.LinkManager.GetItemUrl(item)
+                Image = new HtmlString(FieldRenderer.Render(dataSourceItem, "Image", "mw=400")),
+                Date = new HtmlString(FieldRenderer.Render(dataSourceItem, "Date"))
             };
             return View(demoArticleNoGlass);
         }
