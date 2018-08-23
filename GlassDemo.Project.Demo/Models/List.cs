@@ -7,7 +7,7 @@ using System.Web;
 
 namespace GlassDemo.Project.Demo.Models
 {
-	[SitecoreType(TemplateId = Templates.List.Id)]
+	//[SitecoreType(TemplateId = Templates.List.Id)]
 	public class List
 	{
 		public virtual string Title { get; set; }

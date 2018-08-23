@@ -37,13 +37,28 @@ namespace GlassDemo.Project.Demo.Controllers
 		public ActionResult DemoNoGlassArticle()
 		{
 			var dataSourceItem = RenderingContext.Current.Rendering.Item;
-			var demoArticleNoGlass = new DemoArticleNoGlass()
-			{
-				Header = new HtmlString(FieldRenderer.Render(dataSourceItem, "Header")),
-				Body = new HtmlString(FieldRenderer.Render(dataSourceItem, "Body")),
-				Image = new HtmlString(FieldRenderer.Render(dataSourceItem, "Image", "mw=400")),
-				Date = new HtmlString(FieldRenderer.Render(dataSourceItem, "Date"))
-			};
+
+            var demoArticleNoGlass = new DemoArticleNoGlass();
+
+            demoArticleNoGlass.Header = dataSourceItem["Header"];
+            demoArticleNoGlass.Body = dataSourceItem["Body"];
+            ImageField imgField = dataSourceItem.Fields["Image"];
+            if (imgField != null)
+            {
+                demoArticleNoGlass.Image = Sitecore.Resources.Media.MediaManager.GetMediaUrl(imgField.MediaItem);
+            }
+            DateField dateField = dataSourceItem.Fields["Date"];
+            if (dateField != null)
+            {
+                demoArticleNoGlass.Date = dateField.DateTime.ToString();
+            }
+
+            //Alternatively, to make them EE editable:
+            //Header = new HtmlString(FieldRenderer.Render(dataSourceItem, "Header"));
+            //Body = new HtmlString(FieldRenderer.Render(dataSourceItem, "Body"));
+            //Image = new HtmlString(FieldRenderer.Render(dataSourceItem, "Image", "mw=400"));
+            //Date = new HtmlString(FieldRenderer.Render(dataSourceItem, "Date"));
+
 			return View(demoArticleNoGlass);
 		}
 

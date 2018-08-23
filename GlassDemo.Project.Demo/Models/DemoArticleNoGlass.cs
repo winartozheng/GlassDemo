@@ -7,9 +7,9 @@ namespace GlassDemo.Project.Demo.Models
 {
     public class DemoArticleNoGlass
     {
-        public HtmlString Header { get; set; }
-        public HtmlString Body { get; set; }
-        public HtmlString Image { get; set; }
-        public HtmlString Date { get; set; }
+        public string Header { get; set; }
+        public string Body { get; set; }
+        public string Image { get; set; }
+        public string Date { get; set; }
     }
 }
