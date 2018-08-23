@@ -2,34 +2,31 @@
 using Sitecore;
 using Sitecore.Data.Items;
 using Sitecore.Pipelines.HttpRequest;
+using Sitecore.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GlassDemo.Project.Demo.Pipeline
 {
 	public class NotFoundProcessor : HttpRequestProcessor
 	{
-		private readonly IRequestContext _requestContext;
 
-		public NotFoundProcessor(IRequestContext requestContext)
-		{
-			_requestContext = requestContext;
-		}
 		public override void Process(HttpRequestArgs args)
 		{
-			if (IsValidItem())
+            var requestContext = ServiceLocator.ServiceProvider.GetService<IRequestContext>();
+
+            if (IsValidItem())
 			{
 				return;
 			}
-			Context.Item = _requestContext.GetHomeItem<Item>();
+			Context.Item = requestContext.GetHomeItem<Item>();
 			
 		}
 
 		public bool IsValidItem()
 		{
-			bool isValid = Context.Site != null
-				&& Context.Item != null
-				&& Context.Item.Visualization.Layout != null;
-
-			return isValid;
+			return Context.Site != null
+                && Context.Item != null
+                && Context.Item.Visualization.Layout != null; ;
 		}
 	}
 }

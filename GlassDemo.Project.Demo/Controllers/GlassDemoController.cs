@@ -25,7 +25,6 @@ namespace GlassDemo.Project.Demo.Controllers
 		public ActionResult DemoArticle()
 		{
 			var dataSource = _mvcContext.GetDataSourceItem<DemoArticle>();
-            //vs. GetRenderingItem<T>() ?
 			return View(dataSource);
 		}
 
