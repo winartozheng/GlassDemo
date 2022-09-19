@@ -9,6 +9,7 @@ namespace GlassDemo.Project.Demo
 		public void Configure(IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddTransient<GlassDemoController>();
+			serviceCollection.AddTransient<TestController>();
 		}
 	}
 }

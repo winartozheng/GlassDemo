@@ -1,0 +1,12 @@
+﻿@using Glass.Mapper.Sc.Web.Mvc
+@model GlassDemo.Project.Demo.Models.PageModel
+
+DemoArticle Component
+<div>
+    Hello Halaman 1
+    <div>
+        <p>@Html.Glass().Editable(x => x.Header)</p>
+        <input type="text" value="@Html.Glass().Model.Body" name="Body" />
+        <input type="text" value="@Html.Glass().Editable(x=>x.Body)" />
+    </div>
+</div>

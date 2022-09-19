@@ -1,5 +1,6 @@
 #region GlassMapperScCustom generated code
 using Glass.Mapper.Configuration;
+using Glass.Mapper.Configuration.Attributes;
 using Glass.Mapper.IoC;
 using Glass.Mapper.Maps;
 using Glass.Mapper.Sc.IoC;
@@ -18,38 +19,27 @@ namespace GlassDemo.Project.Demo.App_Start
 			return dependencyResolver;
 		}
 
-		public static IConfigurationLoader[] GlassLoaders(){			
-			
+		public static IConfigurationLoader[] GlassLoaders(){
+
 			/* USE THIS AREA TO ADD FLUENT CONFIGURATION LOADERS
              * 
              * If you are using Attribute Configuration or automapping/on-demand mapping you don't need to do anything!
              * 
              */
+			var attributes = new AttributeConfigurationLoader("GlassDemo.Project.Demo");
 
-			return new IConfigurationLoader[]{};
+			return new IConfigurationLoader[] { attributes };
+	
 		}
 		public static void PostLoad(){
-			//Remove the comments to activate CodeFist
-			/* CODE FIRST START
-            var dbs = Sitecore.Configuration.Factory.GetDatabases();
-            foreach (var db in dbs)
-            {
-                var provider = db.GetDataProviders().FirstOrDefault(x => x is GlassDataProvider) as GlassDataProvider;
-                if (provider != null)
-                {
-                    using (new SecurityDisabler())
-                    {
-                        provider.Initialise(db);
-                    }
-                }
-            }
-             * CODE FIRST END
-             */
+			
 		}
 		public static void AddMaps(IConfigFactory<IGlassMap> mapsConfigFactory)
         {
-            mapsConfigFactory.Add(() => new IFluentArticleMap());
-        }
+			// Add maps here
+             mapsConfigFactory.Add(() => new IFluentArticleMap());
+			 //mapsConfigFactory.Add(() => new PageModelMap());
+		}
     }
 }
 #endregion

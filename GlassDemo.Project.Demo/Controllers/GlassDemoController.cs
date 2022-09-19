@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Glass.Mapper.Sc;
 using Glass.Mapper.Sc.Web.Mvc;
 using GlassDemo.Project.Demo.Models;
@@ -14,7 +15,7 @@ using Sitecore.Web.UI.WebControls;
 
 namespace GlassDemo.Project.Demo.Controllers
 {
-	public class GlassDemoController : Controller
+	public class GlassDemoController : Sitecore.Mvc.Controllers.SitecoreController
 	{
 		private readonly IMvcContext _mvcContext;
 
@@ -88,7 +89,7 @@ namespace GlassDemo.Project.Demo.Controllers
 			// example for lazy loading & SitecoreService:
 			Database masterDb = Sitecore.Configuration.Factory.GetDatabase("master");
 			ISitecoreService service = new SitecoreService(masterDb);
-
+			
 			Carousel target = service.GetItem<Carousel>("/sitecore/content/Home/New MVC Page/Assets/DemoCarousel", x => x.LazyDisabled());
 			var options = new GetItemByIdOptions(System.Guid.NewGuid())
 			{
@@ -122,5 +123,10 @@ namespace GlassDemo.Project.Demo.Controllers
 
 			return View(viewModel);
 		}
-	}
+
+        public void Execute(RequestContext requestContext)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

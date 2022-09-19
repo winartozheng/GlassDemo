@@ -3,9 +3,9 @@
 DemoArticle Component
 <div>
 	<h4>@Html.Glass().Editable(x => x.Header)</h4>
-	<div>
-		<p>@Html.Glass().Editable(x => x.Body)</p>
-        <p>@Html.Glass().RenderImage(x=>x.Image, isEditable:true)</p>
-        <p>@Html.Glass().Editable(x=>x.Date)</p>
-	</div>
+    <div>
+        <p>@Html.Glass().RenderImage(x => x.Image, isEditable: true)</p>
+        <input type="text" value="@Html.Glass().Editable(x=>x.Date)" />
+        <input type="text" value="@Html.Glass().Editable(x=>x.Body)" />
+    </div>
 </div>
